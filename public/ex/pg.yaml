@@ -1,0 +1,133 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: 6d040c85f3f9d550b9edc801ff65b1fc6f768d677d2912a09d825874e4fd18d9
+    cni.projectcalico.org/podIP: 10.42.0.175/32
+    cni.projectcalico.org/podIPs: 10.42.0.175/32
+    kubectl.kubernetes.io/restartedAt: "2022-11-15T15:39:22-06:00"
+    kubernetes.io/psp: global-unrestricted-psp
+  creationTimestamp: "2022-11-15T21:39:22Z"
+  generateName: postgres-6778cdd895-
+  labels:
+    app: misskey
+    component: db
+    pod-template-hash: 6778cdd895
+  name: postgres-6778cdd895-gzkgp
+  namespace: misskey
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: postgres-6778cdd895
+    uid: 4a7857b3-f06e-4fc0-bc53-966cb3af20c0
+  resourceVersion: "120472598"
+  uid: 41a4b844-f783-41b7-8b0d-24e193fc1714
+spec:
+  containers:
+  - env:
+    - name: POSTGRES_DB
+      value: misskey
+    - name: POSTGRES_USER
+      value: misskey
+    - name: POSTGRES_PASSWORD
+      value: misskey
+    image: postgres:15.1
+    imagePullPolicy: IfNotPresent
+    name: misskey
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: misskey-db
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-mdz22
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: tuesdae
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: misskey-db
+    persistentVolumeClaim:
+      claimName: misskey-db
+  - name: kube-api-access-mdz22
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:39:22Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:40:25Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:40:25Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:39:22Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://458f7365d35402415b1a882f0e229dda194216c28bec02f2ee070c9789be7738
+    image: docker.io/library/postgres:15.1
+    imageID: docker.io/library/postgres@sha256:9eb2589e67e69daf321fa95ae40e7509ce08bb1ef90d5a27a0775aa88ee0c704
+    lastState:
+      terminated:
+        containerID: containerd://fccd3a9426d83ab4f31b6bbdc289b27b620f0155c52added0350b2c24f8061dd
+        exitCode: 0
+        finishedAt: "2022-11-15T21:40:24Z"
+        reason: Completed
+        startedAt: "2022-11-15T21:39:23Z"
+    name: misskey
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2022-11-15T21:40:24Z"
+  hostIP: 204.93.218.167
+  phase: Running
+  podIP: 10.42.0.175
+  podIPs:
+  - ip: 10.42.0.175
+  qosClass: BestEffort
+  startTime: "2022-11-15T21:39:22Z"
+

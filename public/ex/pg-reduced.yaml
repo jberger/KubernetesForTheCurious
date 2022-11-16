@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    ...
+  labels:
+    ...
+  name: postgres-6778cdd895-gzkgp
+  namespace: misskey
+  ownerReferences:
+    ...
+spec:
+  containers:
+  - env:
+    - name: POSTGRES_DB
+      value: misskey
+    - name: POSTGRES_USER
+      value: misskey
+    - name: POSTGRES_PASSWORD
+      value: misskey
+    image: postgres:15.1
+    name: misskey
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: misskey-db
+  volumes:
+  - name: misskey-db
+    persistentVolumeClaim:
+      claimName: misskey-db
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:39:22Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:40:25Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:40:25Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-15T21:39:22Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://458f7365d35402415b1a882f0e229dda194216c28bec02f2ee070c9789be7738
+    image: docker.io/library/postgres:15.1
+    imageID: docker.io/library/postgres@sha256:9eb2589e67e69daf321fa95ae40e7509ce08bb1ef90d5a27a0775aa88ee0c704
+    lastState:
+      terminated:
+        containerID: containerd://fccd3a9426d83ab4f31b6bbdc289b27b620f0155c52added0350b2c24f8061dd
+        exitCode: 0
+        finishedAt: "2022-11-15T21:40:24Z"
+        reason: Completed
+        startedAt: "2022-11-15T21:39:23Z"
+    name: misskey
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2022-11-15T21:40:24Z"
+  hostIP: 204.93.218.167
+  phase: Running
+  podIP: 10.42.0.175
+  podIPs:
+  - ip: 10.42.0.175
+  qosClass: BestEffort
+  startTime: "2022-11-15T21:39:22Z"
+
+
