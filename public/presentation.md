@@ -319,6 +319,10 @@ Define
   - behavior
   - issuance (cert-manager, LetsEncrypt)
 
+notes:
+* think nginx reverse-proxy
+* reuse a loadbalancer instance
+
 ===
 
 ### CronJob
