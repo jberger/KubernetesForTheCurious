@@ -179,6 +179,9 @@ note:
 * Control plane communicates that to nodes
 * Nodes indicate current state of those goals
 
+notes:
+* they all do it by updating that object in the api/etcd
+
 ---
 
 ### Wait? I communicate via the API?!
@@ -414,6 +417,7 @@ $ kubectl get -n <namespace> pods
 $ kubectl get -f manifest.yaml
 $ kubectl get pod postgres-<tab>
 $ kubectl get pod postgres-<tab> -o yaml
+$ kubextl get pods -w
 $ kubectl get secret <name> -o format='{{.data.password | base64decode }}'
 $ kubectl describe pod postgres-<tab>
 $ kubectl logs <pod-name>
