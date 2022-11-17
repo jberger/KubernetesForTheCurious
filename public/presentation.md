@@ -84,7 +84,7 @@ note: but the important point is
   - One or more controller(s)
 * Decentralized
   - Distributed concensus DB
-  - Muiltiple controllers
+  - Multiiple controllers
 
 ---
 
