@@ -92,7 +92,7 @@ note: but the important point is
 
 ## ... which is for resilence <!-- .element: class="fragment" data-fragment-index="2" -->
 
-### ... and centralized controllers are a SPOF <!-- .element: class="fragment" data-fragment-index="3" -->
+### ... and centralized coordination is a SPOF <!-- .element: class="fragment" data-fragment-index="3" -->
 
 ... which means ... <!-- .element: class="fragment" data-fragment-index="4" -->
 
