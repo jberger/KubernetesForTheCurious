@@ -181,6 +181,7 @@ note:
 
 notes:
 * they all do it by updating that object in the api/etcd
+* not just api-first, its api-only!
 
 ---
 
