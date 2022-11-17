@@ -84,7 +84,7 @@ note: but the important point is
   - One or more controller(s)
 * Decentralized
   - Distributed concensus DB
-  - Multiiple controllers
+  - Multiple controllers
 
 ---
 
@@ -418,7 +418,7 @@ $ kubectl get -n <namespace> pods
 $ kubectl get -f manifest.yaml
 $ kubectl get pod postgres-<tab>
 $ kubectl get pod postgres-<tab> -o yaml
-$ kubextl get pods -w
+$ kubectl get pods -w
 $ kubectl get secret <name> -o format='{{.data.password | base64decode }}'
 $ kubectl describe pod postgres-<tab>
 $ kubectl logs <pod-name>
@@ -462,7 +462,7 @@ $ kubectl create job --from=cronjob/<cron-name> <job-name>
 
 ---
 
-### Lens GUI Client
+### Dashboard Web Client
 
 Web app installed in cluster
 
